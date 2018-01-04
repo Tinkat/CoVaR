@@ -1,0 +1,13 @@
+Name of Quantlet:  Closeness_Centrality
+ 
+Published in:      R 
+  
+Description:       Calculate closeness centrality based on given adjacency matrix and plot closeness centralities of network members
+ 
+Keywords:          closeness_centrality, centrality, plot, Delta_CoVaR, network, CoVaR
+
+Author:            Hien Pham Thu
+  
+Submitted:         Wed, December 23 2017 by Raphael Reule
+  
+Datafile:          data sourced from calculated Delta CoVaR and transformed to adjacency matrix
