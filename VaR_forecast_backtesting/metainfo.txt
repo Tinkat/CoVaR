@@ -1,0 +1,13 @@
+Name of Quantlet:  VaR_forecast_backtesting
+ 
+Published in:      R 
+  
+Description:       VaR forecasting based on quantile regression and validation of forecast by backtesting
+ 
+Keywords:          quantile_regression, VaR, GACV, cross_validation, LASSO, backtesting
+
+Author:            Hien Pham Thu
+  
+Submitted:         17.12.2017 by Hien Pham Thu
+  
+
