@@ -1,0 +1,13 @@
+Name of Quantlet:  Quantile_Lasso_function
+ 
+Published in:      R 
+  
+Description:       Quantile loss function and Quantile LASSO function applying generalized approximate cross validation (GACV)
+ 
+Keywords:          quantile_regression, loss_quantile_function, GACV, cross_validation, LASSO, 
+
+Author:            Shih-Kang Chao
+  
+Submitted:         17.12.2017 by Hien Pham Thu
+  
+
