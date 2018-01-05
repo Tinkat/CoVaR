@@ -1,0 +1,13 @@
+Name of Quantlet:  ConfidenceBand_Plot
+ 
+Published in:      R 
+  
+Description:       Create scatterplot with asymptotic and bootstrap confidence bands as well as linear regression and quantile regression
+ 
+Keywords:          confidence_band, bootstrap, quantile_regression, asymptotic_confidence band, plot, linear_regression
+
+Author:            Shih-Kang Chao, Hien Pham Thu
+  
+Submitted:         15.12.2017 by Hien Pham Thu
+  
+
