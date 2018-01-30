@@ -1,0 +1,48 @@
+library("qgraph")
+
+setwd("C:/Users/Hien Pham Thu/Documents/Doktorarbeit/02_Program/NETWORK_GRAPH/Data")
+date = read.table("date_3RUN.txt")
+date <-t(date[1])
+delta_covar02 <- read.csv("02_Citi_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar03 <- read.csv("03_BoA_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar04 <- read.csv("04_Barclays_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar05 <- read.csv("05_BNP_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar06 <- read.csv("06_CreditSuisse_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar07 <- read.csv("07_DB_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar08 <- read.csv("08_GS_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar09 <- read.csv("09_HSBC_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar10 <- read.csv("10_JPM_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar11 <- read.csv("11_MS_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar12 <- read.csv("12_RBS_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar13 <- read.csv("13_SocGen_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar14 <- read.csv("14_UBS_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+delta_covar15 <- read.csv("16_AIG_dcovar_adapt_3RUN_DEC2013.csv",sep=";",dec=",")
+
+col <- array(0,196)
+name_vector = c("CITI","BOA","BARC","BNP","CS","DB","GS","HSBC","JPM","MS","RBS","SG","UBS","AIG")
+
+#col = c(t(delta_covar[1,]),t(delta_covar[2,]),t(delta_covar[3,]),t(delta_covar[4,]),t(delta_covar[5,]),t(delta_covar[6,]),t(delta_covar[7,]),t(delta_covar[8,]),t(delta_covar[9,]),t(delta_covar[10,]),t(delta_covar[11,]),t(delta_covar[12,]),t(delta_covar[13,]),t(delta_covar[14,]),t(delta_covar[15,]))
+
+for ( i in 1:561){
+col = c(t(delta_covar02[i,2:15]),t(delta_covar03[i,2:15]),t(delta_covar04[i,2:15]),t(delta_covar05[i,2:15]),t(delta_covar06[i,2:15]),t(delta_covar07[i,2:15]),t(delta_covar08[i,2:15]),t(delta_covar09[i,2:15]),t(delta_covar10[i,2:15]),
+t(delta_covar11[i,2:15]),t(delta_covar12[i,2:15]),t(delta_covar13[i,2:15]),t(delta_covar14[i,2:15]),t(delta_covar15[i,2:15]))
+Edges <- data.frame(
+    from = rep(name_vector,each=14),
+    to = rep(name_vector, times=14),
+    thickness = col*(-1))
+
+Edges <- subset(Edges,as.character(from)!=as.character(to))
+
+#Speicherung der pdf
+file_path <- c("C:/Users/Hien Pham Thu/Documents/Doktorarbeit/02_Program/NETWORK_GRAPH/pdf_output_3RUN/")
+file_name <-  paste (file_path, "DeltaCoVaR_Network_", sep="")
+#file_name_graph <- paste( file_name,".pdf",sep="")
+
+pdf(paste(file_name,i,".pdf",sep=""), onefile = T, width = 16, height = 8)
+
+Q <- qgraph(Edges,esize=5,vsize=5,gray=TRUE)
+title(date[i], line = 2.5,cex.main=2.5)
+
+dev.off()
+
+}
